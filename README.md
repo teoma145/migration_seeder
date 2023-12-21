@@ -67,8 +67,16 @@ npm install
 # inserisco i dati per il collegamento al db in env
 
 # creo il database da phpmyadmin
+#creo migration
+php artisan make:migration create_nometabella_table
 
-
+#comandi tabelle
+php artisan make:migration update_users_table --table=users
+php artisan make:migration add_phone_number_to_users_table
+php artisan migrate per lanciare tutte le modifiche e creazioni al database di file
+php artisan migrate:rollback per eliminare le modifiche fatte con migrate
+php artisan make:seeder UsersTableSeeder per popolare la tabella
+php artisan db:seed --class=HouseTableSeeder
 # preparo le rotte file web.php es. 
 Route::get('/books', [BookController::class, 'index'])->name('books.index');
 
